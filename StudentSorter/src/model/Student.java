@@ -32,14 +32,15 @@ public class Student implements Comparable<Student> {
 
 	@Override
 	public int compareTo(Student o) {
+		int num = 0;
 		if (compareByName == true) {
-			if ((this.lastName.compareToIgnoreCase(o.lastName) == 0)) {
-				return this.firstName.compareToIgnoreCase(o.firstName);
-			}
-			return this.lastName.compareToIgnoreCase(o.lastName);
+			if ((this.lastName.compareToIgnoreCase(o.lastName) == 0)) 
+				num= this.firstName.compareToIgnoreCase(o.firstName);
+			else
+				num = this.lastName.compareToIgnoreCase(o.lastName);
 		} else {
-			return compareByScore(o);
-		}
+			num =  compareByScore(o);
+		}return num;
 	}
 
 	private int compareByScore(Student o) {
